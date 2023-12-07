@@ -1,0 +1,49 @@
+%!TEX root = ../main.tex
+
+\chapter{Zusammenfassung}
+% Aufgabenstellung, Vorgehensweise und wesentliche Ergebnisse werden kurz und präzise dargestellt und kritisch reflektiert. Die Zusammenfassung ist eigenständig verständlich. Länge ca. 1 bis 1,5 Seiten (Problem, Ziele, Vorgehensweise, Ergebnisse und Ausblick).
+
+Mit dieser Projektarbeit ist eine neue Platine für das E-Schloss entstanden, die den aktuellen Stand der Technik widerspiegelt. \\
+Nachdem die aktuelle Version nicht mehr hergestellt werden kann war es notwendig, eine neue Version zu entwickeln welche
+die gleichen Funktionen bietet und somit rückwärtskompatibel ist. Bei dieser Gelegenheit ist es zusätzlich sinnvoll einige
+Punkte zu verbessern, die durch den Betrieb der Version 1 aufgefallen sind. 
+
+Bei dem E-Schloss handelt es sich um eine Baugruppe die in den Fahrscheinautomaten der Firma krauth technology GmbH verbaut wird.
+Sie dient dazu die Tür des Automaten zu öffnen wenn ein berechtigter Benutzer einen Chip mit passender Signatur an den Reader
+hält. Die Platine dieses E-Schlosses öffnet im Anschluss die Tür indem der Magnet angehoben wird, der die Tür geschlossen hält. 
+Um die Tür auch bei einem Stromausfall öffnen zu können, werden interne Kondensatoren durch eine externe Batterie aufgeladen
+und über deren Energie dann das E-Schloss betrieben.
+
+Als erstes mussten die Anforderungen an die neue Platine definiert werden. Dazu gehören die Maße der Platine, die Anschlüsse
+und die Funktionen. Um die erwünschte Rückwärtskompatibilität zu gewährleisten, müssen die Maße und Anschlüsse der alten Platine 
+übernommen werden. Die Anforderungen, die nicht durch die alte Platine vorgegeben sind, wurden durch die Erfahrungen aus dem
+Betrieb der alten Platine definiert. 
+
+Mit diesen Anforderungen kann dazu übergegangen werden die neue Platine zu entwerfen. Dazu wurden als erstes die 
+Komponenten ausgewählt, die auf der Platine verbaut werden sollen. Dabei wurde darauf geachtet, dass die Bauteile
+möglichst wenig Strom verbrauchen, um die Batterie zu schonen. Außerdem wurde darauf geachtet, sie so zu wählen, dass
+sie auch in Zukunft noch verfügbar sind.
+
+\
+
+Mit den ausgewählten Bauteilen wurde dann der Schaltplan entworfen. Bei einigen Schaltungen wurde auf die Schaltungen
+der alten Platine zurückgegriffen, bei anderen wurde eine neue Lösung entwickelt. \\
+Besonders aufwändig waren dabei die Schaltungen der beiden Spannungswandler. Diese wurden mit Hilfe von Datenblättern
+und Referenzschaltungen entwickelt und anschließend mit Hilfe von Simulationen optimiert, bis sie die gewünschten
+Eigenschaften aufwiesen. 
+
+Nachdem der Schaltplan korrekt entworfen wurde, konnte daraus ein Layout erstellt werden. Dabei wurde darauf geachtet,
+dass die Platine möglichst kompakt ist und die Bauteile möglichst effizient angeordnet sind. Außerdem war die 
+Störungssicherheit ein wichtiger Faktor, der bei vielen Entscheidungen berücksichtigt werden musste.
+
+Mit diesem Schritt endet der Umfang dieser Projektarbeit. Da die Platine jedoch noch nicht vollkommen fertig 
+entwickelt ist, hier noch ein Ausblick auf die weiteren Entwicklungsschritte bis das E-Schloss V2 in Serie genommen
+werden kann. 
+
+Der nächste Schritt in der Entwicklung ist dann die Fertigung der Platine, die Bestückung und die Inbetriebnahme.
+Dabei wird das \ac{pcb} von einer spezialisierten Firma gefertigt und die Bauteile werden nach und nach aufgelötet
+wobei immer wieder die Funktion überprüft wird. \\
+Zu der Inbetriebnahme gehört die Programmierung des Mikrocontrollers und die Überprüfung der Funktionen. Dabei
+wird die Platine an einen Testaufbau angeschlossen, der die Funktionen des E-Schlosses simuliert. \\
+Nachdem die Funktion der Platine mit einer Inbetriebnahme Software überprüft wurde, kann die finale Software
+aus der alten Version entwickelt werden, indem die alte Software an die neue Hardware angepasst wird. 

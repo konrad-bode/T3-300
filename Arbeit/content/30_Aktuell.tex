@@ -1,0 +1,48 @@
+%!TEX root = ../main.tex
+
+\chapter{Aktuelle Version}
+Die aktuelle Version der Platine wurde im Jahr 2014 entwickelt und ist seitdem bei verschiedenen Projekten in Betrieb.
+Sie dient als Vorlage und Orientierung für die Neuentwicklung.
+
+\section{Aufbau}
+Als Prozessor wird ein MB9BF524KPMC von Fujitsu verwendet, dabei handelt es sich um einen 32-Bit ARM Cortex-M3 Mikrocontroller.
+Ebenfalls von Fujitsu stammt der 8K x 8 Bit \ac{FRAM} Speicher mb85rs64v, der über ein \ac{SPI} mit dem Mikrocontroller
+verbunden ist. Als externe \ac{RTC} wird das Modell PCF2123TS von NXP eingesetzt, welches wiederum mit einem weiterem \ac{SPI}
+angeschlossen wird.\\
+Die Platine verfügt über verschiedene Stecker und Buchsen, um mit diversen Externen Komponenten verbunden zu werden:
+\begin{itemize}
+    \item 1\(\times\) Mini-USB-B Buchse (nicht Bestückt)
+    \item 4\(\times\) 2 Pol StdMol Buchse
+          \begin{itemize}
+              \item 1\(\times\) 1Wire
+              \item 1\(\times\) Magnet
+              \item 1\(\times\) Kondensatoren
+              \item 1\(\times\) Automaten Stromversorgung
+          \end{itemize}
+    \item 1\(\times\) 3 Pol StdMol Buchse für LEDs
+    \item 1\(\times\) RJ45 Buchse oder 1\(\times\) 3 Pol StdMol Buchse für RS232
+    \item 1\(\times\) Steckerleiste 2\(\times\)6 Pins (Kombo-Stecker)
+    \item 1\(\times\) Steckerleiste 2\(\times\)5 Pins (Debug Stecker)
+\end{itemize}
+Die Stromversorgung erfolgt über einen Boost Wandler, der aus der 24V Automaten Spannung eine 12V Spannung erzeugt. Mit diesen 12V
+werden dann die Magneten und ein 3,3V Linearregler versorgt, welcher die Versorgungsspannung für den Mikrocontroller bereitstellt.
+Drei 4700µF Kondensatoren, die an den 12V angeschlossen sind dienen als Puffer für die Magneten, wenn das Schloss ohne interne 
+Spannungsversorgung betrieben wird.
+
+\section{Funktionsweise}
+Der Automat und das E-Schloss kommunizieren über eine RS232 Schnittstelle miteinander. Die Schnittstelle zum Benutzer ist
+ein iButton Reader, der sich an der außenseite des Automaten befindet. \\
+Das E-Schloss kann entweder mit der Automaten internen 24V Schiene betrieben werden oder bei Ausfall dieser mit einer externen
+Batterie kurzzeitig über das OneWire Interface aufgeladen werden. \\
+Wenn ein iButton an den Reader gehalten wird, wird die ID des iButtons an den Automaten gesendet. Dieser prüft, ob diese ID
+autorisiert ist und sendet dann ein Signal an das E-Schloss. Dieses hebt dann die Magneten und öffnet damit für eine
+einstellbare Zeit die Tür.
+
+\section{Probleme}
+Die Platine ist voll funktionsfähig und hat sich in der Praxis bewährt. Es gibt jedoch einige Punkte, die bei einer
+Neuentwicklung verbessert werden sollten. \\
+Der Grund für eine Neuauslegung der Platine ist das Ende des Produktlebenszyklus des verwendeten Mikrocontrollers.
+Dieser wird nicht mehr hergestellt und ist nur noch schwer zu beschaffen. \\
+Außerdem ist die Platine nicht mehr auf dem neusten Stand der Technik. So wird zum Beispiel heute eher \ac{CAN} als RS232
+zur Kommunikation mit dem Automaten verwendet. In der langjährigen Benutzung ist aufgefallen, dass ein etwas größerer
+Energiespeicher für das E-Schloss wünschenswert wäre.
